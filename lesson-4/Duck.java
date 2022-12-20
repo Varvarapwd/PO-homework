@@ -1,6 +1,6 @@
 public class Duck implements Animal {
     //private final float
-    public void animalSound() {
+    public void giveSound() {
 
         System.out.println("The duck says: quack quack");
     }
