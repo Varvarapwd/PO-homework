@@ -12,7 +12,7 @@ public class Movie {
         this.runtime = runtime;
     }
 
-    public void MovieInfo() {
+    public void Information() {
          System.out.println("Type:" +this.types.typesName());
          System.out.println("Producers:"+this.producers[0].name()+this.producers[1].name()+this.producers[2].name()+this.producers[3].name());
          System.out.println("Title:"+this.title.title("ENG"));
