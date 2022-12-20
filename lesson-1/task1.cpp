@@ -1,72 +1,101 @@
 #include <iostream>
-#include <cstdlib>
+#include <string>
 using namespace std;
+class best_friend {
 
-class Bestie
-{
- public:
+public:
     string name;
-    string hobby;
-    string favourite_drink;
+    void setBestFriendName(string BestFriendName)
+    {
+        name = BestFriendName;
+    }
+    string getBestFriendName()
+    {
+        return name;
+    }
     string favourite_animal;
-    int age;
-    
-    void print()
-    {
-        std::cout<< name << " "<< hobby << " "<<favourite_drink<< " "<< favourite_animal << " " << age<< "";
-    
-    }
+    string bf_name;
 };
-class Bestiesbf
+class best_friend_bf : public best_friend
 {
- public:
-    string name;
-    string profession;
-    string hobby;
-    string favourite_animal;
+public:
     int age;
-    void print()
+    void setBFName(string BFName)
     {
-        std::cout << name << " "<< hobby << " "<<profession<< "  "<< favourite_animal << " " << age <<" ";
-    
+        bf_name = BFName;
+    }
+    string getBFName()
+    {
+        return bf_name;
     }
 };
-class Animal
+class pet : public best_friend
 {
- public:
-    string type;
-    string name;
-    string hobby;
-    int age;
-    void print()
+public:
+    void setfavourite_animal(string favourite_animal_)
     {
-        std::cout<<type<< " "<< name << " "<< hobby << " "<< age<< " ";
-    
+        favourite_animal = favourite_animal_;
     }
+    string getfavourite_animal()
+    {
+        return favourite_animal;
+    }
+    void setPetSize(string petSize)
+    {
+        pet_Size = petSize;
+    }
+    virtual void setEars(string type) 
+    {
+        ear_Type = type;
+    }
+private: string pet_Size, ear_Type;
+
+
 };
+
+class breed : public pet
+{
+public:
+    breed(string color, string size)
+    {
+        color = color;
+        setPetSize(size);
+    }
+
+    string getColor()
+    {
+        return color;
+    }
+      void setEars(string length, string type)
+    {
+        ear_Length = length;
+        ear_Type = type;
+    }
+    string getEarsLength() 
+    {
+        return ear_Length;
+    }
+    string getEarsType() 
+    {
+        return ear_Type;
+    }
+
+protected:
+   string color, ear_Length, ear_Type;
+};
+
 int main()
 {
-    Bestie a;
-    a.name = "Ann";
-    a.hobby ="Watching series";
-    a.favourite_drink = "Coffee";
-    a.favourite_animal = "Dog";
-    a.age = 21;
-    a.print();
-    Bestiesbf b;
-    b.name = "Mate";
-    b.profession = "doctor";
-    b.hobby = "Cuddling and watching series with Ann";
-    b.favourite_animal = "Dog";
-    b.age= 26;
-    b.print();
-    Animal c;
-    c.type ="Dog";
-    c.name = "Mikey";
-    c.hobby="Playing with Ann and Mate";
-    c.age = 2;
-    c.print();
-    
-    return 0;
-  
-}
+    pet dog;
+    breed labrador("yellow","large");
+    dog.setfavourite_animal("Dog");
+    dog.setEars("pointy");
+    labrador.setEars("long", "floppy");
+    best_friend a;
+    best_friend_bf b;
+    a.setBestFriendName("Ann");
+    b.setBFName("John");
+    cout <<dog.getfavourite_animal() << " is " <<a.getBestFriendName()<< "'s favourite animal" << endl;
+    cout << b.getBFName() << " decided to make " << a.getBestFriendName() << " a present. So, now they have Cody."<< endl;
+    cout << "Cody is a labrador with "<< labrador.getEarsLength()<<" "<< labrador.getEarsType() << " ears" << endl;
+    }
