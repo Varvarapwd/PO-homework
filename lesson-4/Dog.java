@@ -1,6 +1,6 @@
 public class Dog implements Animal {
 
-    public void animalSound() {
+    public void giveSound() {
 
         System.out.println("The dog says: bow wow");
     }
